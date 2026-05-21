@@ -48,3 +48,11 @@ Build a SQL-based analysis workflow that helps brand and retail teams understand
 
 ## Notes
 This is a portfolio project using fictionalized data inspired by my work experience as a campaign marketing intern with retail/FMCG brands in an airport environment. The data in this portfolio is fake.
+
+## Preview of Dashboard
+
+![fromt page](screenshots/front page.png)
+
+![dashboard1](screenshots/dashboard1.png)
+
+![Dashboard2](screenshots/dashboard2.png)
