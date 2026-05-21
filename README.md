@@ -9,6 +9,14 @@ Build a SQL-based analysis workflow that helps brand and retail teams understand
 - which customer segments spend the most
 - where underperforming touchpoints may need optimization
 
+## My Contribution
+
+- Defined the business questions
+- Wrote SQL queries to analyze campaign performance
+- Used grouping, aggregation, ranking, and filtering logic
+- Interpreted revenue, conversion, basket value, and campaign efficiency metrics
+- Created a portfolio-ready visualization layer using an AI-assisted HTML template
+  
 ## Tech Stack
 - SQL (PostgreSQL-compatible)
 - CSV data source
@@ -19,6 +27,7 @@ Build a SQL-based analysis workflow that helps brand and retail teams understand
 - `analysis_queries.sql` – business questions and SQL queries
 - `sample_data.csv` – synthetic dataset
 - `insights.md` – summary of findings
+- `campaign_performance_dashboard.html` - AI-powered website that helps with dashboard visualization
 
 ## Sample Questions Answered
 1. Which brands generated the highest total revenue?
@@ -38,4 +47,4 @@ Build a SQL-based analysis workflow that helps brand and retail teams understand
 4. Run `analysis_queries.sql`.
 
 ## Notes
-This is a portfolio project using fictionalized data inspired by commercial and campaign work with retail/FMCG brands in an airport environment.
+This is a portfolio project using fictionalized data inspired by my work experience as a campaign marketing intern with retail/FMCG brands in an airport environment. The data in this portfolio is fake.
