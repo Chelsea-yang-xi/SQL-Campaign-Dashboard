@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Campaign Performance SQL Dashboard</title>
+<style>
+:root {
+  --bg:#030604;
+  --panel:#07110b;
+  --panel2:#0b1710;
+  --text:#e8fff0;
+  --muted:#83a78e;
+  --green:#00ff7b;
+  --green2:#39ff14;
+  --line:rgba(0,255,123,.18);
+  --glass:rgba(8,22,13,.82);
+  --shadow:0 0 0 1px rgba(0,255,123,.12), 0 24px 80px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+body{margin:0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; color:var(--text); background:radial-gradient(circle at top left, rgba(0,255,123,.18), transparent 32%), radial-gradient(circle at 80% 20%, rgba(57,255,20,.10), transparent 28%), var(--bg);}
+body:before{content:""; position:fixed; inset:0; pointer-events:none; background:linear-gradient(rgba(255,255,255,.025) 50%, rgba(0,0,0,.03) 50%); background-size:100% 4px; mix-blend-mode:overlay; opacity:.35}
+.container{width:min(1180px,92vw); margin:0 auto;}
+.nav{position:sticky; top:0; z-index:5; backdrop-filter: blur(18px); background:rgba(3,6,4,.72); border-bottom:1px solid var(--line);}
+.nav-inner{height:64px; display:flex; align-items:center; justify-content:space-between;}
+.logo{display:flex; gap:10px; align-items:center; color:var(--green); font-weight:800; letter-spacing:-.04em}
+.logo-dot{width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 22px var(--green)}
+.nav small{color:var(--muted)}
+.hero{padding:86px 0 46px; display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:stretch}
+.terminal{background:linear-gradient(180deg, rgba(7,17,11,.96), rgba(4,9,6,.96)); border:1px solid var(--line); border-radius:28px; padding:26px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+.terminal:after{content:""; position:absolute; inset:-2px; background:linear-gradient(110deg, transparent 15%, rgba(0,255,123,.11), transparent 55%); transform:translateX(-70%); animation:scan 6s infinite}
+@keyframes scan{55%,100%{transform:translateX(90%)}}
+.prompt{color:var(--green); font-size:14px; margin-bottom:18px}
+h1{font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size:clamp(46px,7vw,86px); line-height:.93; letter-spacing:-.075em; margin:0 0 22px;}
+.lead{font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#b4cdbb; font-size:19px; line-height:1.55; max-width:760px; margin:0}
+.cmd{margin-top:28px; padding:18px; background:#020403; border:1px solid rgba(0,255,123,.22); border-radius:18px; color:#a4ffbe; line-height:1.8; font-size:14px}
+.cursor{display:inline-block; width:8px; height:16px; background:var(--green); vertical-align:-3px; animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.side-card{display:flex; flex-direction:column; justify-content:space-between; gap:18px}
+.kpi-big{background:rgba(7,17,11,.72); border:1px solid var(--line); border-radius:28px; padding:26px; box-shadow:var(--shadow)}
+.kpi-big span,.eyebrow{color:var(--green); text-transform:uppercase; font-size:12px; letter-spacing:.14em}
+.kpi-big strong{display:block; font-size:48px; letter-spacing:-.06em; margin:14px 0 8px; font-family: Inter, ui-sans-serif, system-ui}
+.kpi-big p{margin:0; color:var(--muted); line-height:1.55}
+.grid{display:grid; gap:18px}
+.kpis{grid-template-columns:repeat(4,1fr); margin:22px 0 44px}
+.card{background:var(--glass); border:1px solid var(--line); border-radius:24px; padding:22px; box-shadow:var(--shadow)}
+.metric-label{color:var(--muted); font-size:13px}
+.metric-value{font-family:Inter,ui-sans-serif,system-ui; font-size:30px; letter-spacing:-.05em; margin-top:8px; font-weight:800}
+.metric-note{color:#8caf98; font-size:12px; margin-top:8px}
+.section{margin:46px 0}
+.section-head{display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:18px}
+h2{font-family:Inter,ui-sans-serif,system-ui; font-size:34px; letter-spacing:-.055em; margin:0}
+.section-head p{color:var(--muted); max-width:520px; line-height:1.5; margin:0}
+.two{grid-template-columns:1fr 1fr}
+.card-title{display:flex; justify-content:space-between; gap:18px; margin-bottom:18px; align-items:start}
+.card-title h3{font-family:Inter,ui-sans-serif,system-ui; margin:0; font-size:20px; letter-spacing:-.035em}
+.card-title span{color:var(--green); font-size:12px; white-space:nowrap}
+.bar-row{margin:15px 0}
+.bar-meta{display:flex; justify-content:space-between; gap:15px; color:#dfffe8; font-size:13px; margin-bottom:8px}
+.bar-meta strong{color:#fff; font-weight:700}
+.bar-track{height:10px; background:rgba(255,255,255,.055); border-radius:999px; overflow:hidden; border:1px solid rgba(0,255,123,.08)}
+.bar-track span{display:block; height:100%; background:linear-gradient(90deg, rgba(0,255,123,.78), #a5ff00); border-radius:999px; box-shadow:0 0 18px rgba(0,255,123,.35)}
+.insight{border-left:3px solid var(--green); padding-left:16px; color:#b9d4c1; line-height:1.6; margin-top:18px}
+table{width:100%; border-collapse:collapse; font-size:13px; overflow:hidden}
+th{text-align:left; color:var(--green); font-size:12px; text-transform:uppercase; letter-spacing:.08em; padding:12px 10px; border-bottom:1px solid var(--line)}
+td{padding:13px 10px; border-bottom:1px solid rgba(0,255,123,.08); color:#d9f7e1}
+tr:hover td{background:rgba(0,255,123,.045)}
+.sql-box{background:#020403; border:1px solid rgba(0,255,123,.18); border-radius:20px; padding:18px; color:#9afdb8; overflow:auto; font-size:12px; line-height:1.65}
+.tag{display:inline-flex; border:1px solid rgba(0,255,123,.28); color:var(--green); border-radius:999px; padding:7px 10px; margin:4px 4px 0 0; font-size:12px; background:rgba(0,255,123,.05)}
+.footer{padding:48px 0 70px; color:var(--muted); border-top:1px solid var(--line); margin-top:52px}
+.empty{color:var(--muted)}
+@media(max-width:900px){.hero,.two,.kpis{grid-template-columns:1fr} h1{font-size:54px} .section-head{display:block}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="container nav-inner"><div class="logo"><span class="logo-dot"></span> campaign.sql</div><small>portfolio dashboard / black-green terminal edition</small></div></nav>
+<main class="container">
+<section class="hero">
+  <div class="terminal">
+    <div class="prompt">marco@portfolio:~/campaign-dashboard$ run analysis_queries.sql</div>
+    <h1>Campaign Performance Intelligence.</h1>
+    <p class="lead">A SQL-driven commercial dashboard translating retail campaign data into revenue concentration, channel efficiency, customer value, and campaign optimization actions.</p>
+    <div class="cmd">SELECT business_questions<br>FROM customer_campaign_performance<br>WHERE output = 'actionable_insights'; <span class="cursor"></span></div>
+  </div>
+  <div class="side-card">
+    <div class="kpi-big"><span>Total Revenue</span><strong>€1,089,235</strong><p>Across 120 transactions, 6 brands and 4 product categories.</p></div>
+    <div class="kpi-big"><span>Best Channel</span><strong>In-store Display</strong><p>15.09% click-to-conversion rate based on SQL aggregation.</p></div>
+  </div>
+</section>
+<section class="grid kpis">
+  <div class="card"><div class="metric-label">Total Impressions</div><div class="metric-value">1,881,868</div><div class="metric-note">Campaign reach</div></div>
+  <div class="card"><div class="metric-label">Total Conversions</div><div class="metric-value">10,677</div><div class="metric-note">Completed actions</div></div>
+  <div class="card"><div class="metric-label">Click Conversion</div><div class="metric-value">14.07%</div><div class="metric-note">Conversions / clicks</div></div>
+  <div class="card"><div class="metric-label">Avg Satisfaction</div><div class="metric-value">4.24</div><div class="metric-note">Post-campaign score</div></div>
+</section>
+<section class="section">
+ <div class="section-head"><div><div class="eyebrow">01 / revenue diagnosis</div><h2>Revenue is concentrated in a few commercial winners.</h2></div><p>SQL groups revenue by brand and category, then ranks combinations to expose where campaign value is actually created.</p></div>
+ <div class="grid two">
+  <div class="card"><div class="card-title"><h3>Top Brand × Category Revenue</h3><span>SUM(revenue_eur)</span></div><div class="bar-row"><div class="bar-meta"><span>Heineken / Beverage</span><strong>€253,913.45</strong></div><div class="bar-track"><span style="width:100.0%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>MAC / Beauty</span><strong>€193,283.83</strong></div><div class="bar-track"><span style="width:76.1%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Lindt / F&amp;B</span><strong>€191,667.21</strong></div><div class="bar-track"><span style="width:75.5%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Tonys Chocolonely / F&amp;B</span><strong>€163,828.18</strong></div><div class="bar-track"><span style="width:64.5%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Rituals / Beauty</span><strong>€162,893.10</strong></div><div class="bar-track"><span style="width:64.2%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>LEGO / Gifting</span><strong>€123,649.63</strong></div><div class="bar-track"><span style="width:48.7%"></span></div></div><p class="insight">Top result: <b>Heineken / Beverage</b> generated €253,913. This is the first area to protect in media planning.</p></div>
+  <div class="card"><div class="card-title"><h3>Category Leaders</h3><span>RANK() OVER</span></div><div class="bar-row"><div class="bar-meta"><span>Beauty / #1 MAC</span><strong>€193,283.83</strong></div><div class="bar-track"><span style="width:76.1%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Beauty / #2 Rituals</span><strong>€162,893.10</strong></div><div class="bar-track"><span style="width:64.2%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Beverage / #1 Heineken</span><strong>€253,913.45</strong></div><div class="bar-track"><span style="width:100.0%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>F&amp;B / #1 Lindt</span><strong>€191,667.21</strong></div><div class="bar-track"><span style="width:75.5%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>F&amp;B / #2 Tonys Chocolonely</span><strong>€163,828.18</strong></div><div class="bar-track"><span style="width:64.5%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Gifting / #1 LEGO</span><strong>€123,649.63</strong></div><div class="bar-track"><span style="width:48.7%"></span></div></div><p class="insight">Window functions rank each brand inside its category, which is useful for supplier discussions and category-level budget allocation.</p></div>
+ </div>
+</section>
+<section class="section">
+ <div class="section-head"><div><div class="eyebrow">02 / channel efficiency</div><h2>Not every channel converts at the same quality.</h2></div><p>Instead of looking only at clicks, this view calculates conversion rate by channel to identify which traffic source deserves more budget.</p></div>
+ <div class="grid two">
+   <div class="card"><div class="card-title"><h3>Conversion Rate by Channel</h3><span>conversions / clicks</span></div><div class="bar-row"><div class="bar-meta"><span>In-store Display</span><strong>15.09%</strong></div><div class="bar-track"><span style="width:100.0%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Loyalty App</span><strong>15.04%</strong></div><div class="bar-track"><span style="width:99.7%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Search</span><strong>14.05%</strong></div><div class="bar-track"><span style="width:93.1%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Email</span><strong>13.38%</strong></div><div class="bar-track"><span style="width:88.7%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Paid Social</span><strong>13.33%</strong></div><div class="bar-track"><span style="width:88.3%"></span></div></div><p class="insight"><b>In-store Display</b> is the strongest conversion channel. The next action is to compare its audience, offer, and creative against weaker channels.</p></div>
+   <div class="card"><div class="card-title"><h3>Customer Value by Segment</h3><span>AVG(avg_basket_eur)</span></div><div class="bar-row"><div class="bar-meta"><span>Family Traveler</span><strong>€63.20</strong></div><div class="bar-track"><span style="width:100.0%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Commuter</span><strong>€53.83</strong></div><div class="bar-track"><span style="width:85.2%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Business Traveler</span><strong>€50.79</strong></div><div class="bar-track"><span style="width:80.4%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Leisure Traveler</span><strong>€45.98</strong></div><div class="bar-track"><span style="width:72.8%"></span></div></div><p class="insight"><b>Family Traveler</b> shows the highest average basket value at €63.</p></div>
+ </div>
+</section>
+<section class="section">
+ <div class="section-head"><div><div class="eyebrow">03 / campaign impact</div><h2>Campaign period delivered the strongest revenue contribution.</h2></div><p>This matrix-style table links revenue with satisfaction to avoid optimizing sales performance while damaging customer experience.</p></div>
+ <div class="card"><table><thead><tr><th>Period</th><th>Category</th><th>Revenue</th><th>Satisfaction</th></tr></thead><tbody><tr><td>Campaign</td><td>F&amp;B</td><td>€171,103.39</td><td>4.20</td></tr><tr><td>Campaign</td><td>Beauty</td><td>€145,981.71</td><td>4.18</td></tr><tr><td>Campaign</td><td>Beverage</td><td>€119,169.97</td><td>4.20</td></tr><tr><td>Campaign</td><td>Gifting</td><td>€20,668.39</td><td>3.91</td></tr><tr><td>Post-campaign</td><td>F&amp;B</td><td>€103,897.39</td><td>4.28</td></tr><tr><td>Post-campaign</td><td>Beauty</td><td>€77,748.76</td><td>4.25</td></tr><tr><td>Post-campaign</td><td>Beverage</td><td>€76,878.17</td><td>4.38</td></tr><tr><td>Post-campaign</td><td>Gifting</td><td>€21,414.14</td><td>4.33</td></tr><tr><td>Pre-campaign</td><td>Beauty</td><td>€132,446.46</td><td>4.30</td></tr><tr><td>Pre-campaign</td><td>Gifting</td><td>€81,567.10</td><td>4.21</td></tr><tr><td>Pre-campaign</td><td>F&amp;B</td><td>€80,494.61</td><td>4.24</td></tr><tr><td>Pre-campaign</td><td>Beverage</td><td>€57,865.31</td><td>4.34</td></tr></tbody></table></div>
+</section>
+<section class="section">
+ <div class="section-head"><div><div class="eyebrow">04 / optimization queue</div><h2>High reach does not automatically create conversion.</h2></div><p>Underperforming campaigns are identified using SQL HAVING logic: high impressions but low conversions.</p></div>
+ <div class="grid two">
+  <div class="card"><div class="card-title"><h3>Underperforming Campaigns</h3><span>HAVING impressions &gt; 20k</span></div><div class="bar-row"><div class="bar-meta"><span>LEGO / Paid Social</span><strong>0.47%</strong></div><div class="bar-track"><span style="width:58.0%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Rituals / Loyalty App</span><strong>0.71%</strong></div><div class="bar-track"><span style="width:87.7%"></span></div></div>
+<div class="bar-row"><div class="bar-meta"><span>Lindt / Paid Social</span><strong>0.81%</strong></div><div class="bar-track"><span style="width:100.0%"></span></div></div><p class="insight">These campaigns should be reviewed for audience targeting, creative mismatch, landing page friction, or weak offer design.</p></div>
+  <div class="card"><div class="card-title"><h3>Action Table</h3><span>lowest imp → conv</span></div><table><thead><tr><th>Brand</th><th>Channel</th><th>Impressions</th><th>Conversions</th><th>Imp → Conv</th></tr></thead><tbody><tr><td>LEGO</td><td>Paid Social</td><td>21,642</td><td>101</td><td>0.47%</td></tr><tr><td>Rituals</td><td>Loyalty App</td><td>21,703</td><td>155</td><td>0.71%</td></tr><tr><td>Lindt</td><td>Paid Social</td><td>21,289</td><td>173</td><td>0.81%</td></tr></tbody></table></div>
+ </div>
+</section>
+<section class="section">
+ <div class="section-head"><div><div class="eyebrow">05 / SQL logic</div><h2>The dashboard is built from six business questions.</h2></div><p>All sections map back to the original SQL queries, making the portfolio easy to verify for analyst and operations roles.</p></div>
+ <div class="grid two">
+  <div class="card"><span class="tag">GROUP BY</span><span class="tag">SUM / AVG</span><span class="tag">NULLIF</span><span class="tag">RANK window function</span><span class="tag">HAVING filters</span><span class="tag">commercial KPI logic</span><p class="insight">The project demonstrates SQL for practical business diagnostics rather than isolated syntax exercises.</p></div>
+  <pre class="sql-box">-- Example logic
+SELECT campaign_channel,
+       SUM(clicks) AS total_clicks,
+       SUM(conversions) AS total_conversions,
+       ROUND(100.0 * SUM(conversions) / NULLIF(SUM(clicks), 0), 2) AS conversion_rate_pct
+FROM customer_campaign_performance
+GROUP BY campaign_channel
+ORDER BY conversion_rate_pct DESC;</pre>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="container">Designed for GitHub portfolio presentation · Data source: sample campaign performance CSV · Style direction: dark terminal interface with neon green analytical accents.</div></footer>
+</body>
+</html>
