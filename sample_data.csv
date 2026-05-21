@@ -1,0 +1,121 @@
+transaction_id,transaction_date,brand_name,category,customer_segment,campaign_channel,campaign_period,impressions,clicks,conversions,units_sold,revenue_eur,avg_basket_eur,satisfaction_score
+TX0001,2025-01-27,LEGO,Gifting,Leisure Traveler,Loyalty App,Campaign,2772,308,62,124,4008.92,32.33,3.78
+TX0002,2025-02-20,Rituals,Beauty,Family Traveler,Paid Social,Campaign,1833,141,13,13,701.22,53.94,3.63
+TX0003,2025-02-25,Heineken,Beverage,Commuter,Email,Pre-campaign,5192,649,72,216,10169.28,47.08,3.96
+TX0004,2025-04-28,MAC,Beauty,Leisure Traveler,Search,Pre-campaign,8340,278,67,134,8322.74,62.11,4.65
+TX0005,2025-03-16,Heineken,Beverage,Leisure Traveler,Paid Social,Pre-campaign,21080,680,83,249,4424.73,17.77,4.46
+TX0006,2025-03-10,MAC,Beauty,Leisure Traveler,Loyalty App,Post-campaign,24013,649,125,125,5341.25,42.73,3.87
+TX0007,2025-06-13,Lindt,F&B,Business Traveler,In-store Display,Pre-campaign,26979,1173,99,198,8611.02,43.49,4.89
+TX0008,2025-05-26,Lindt,F&B,Commuter,Paid Social,Post-campaign,4060,145,19,38,664.62,17.49,4.79
+TX0009,2025-05-18,MAC,Beauty,Commuter,Loyalty App,Campaign,32930,890,80,160,3774.4,23.59,4.57
+TX0010,2025-01-13,Heineken,Beverage,Leisure Traveler,Paid Social,Post-campaign,27807,897,100,100,5429.0,54.29,3.72
+TX0011,2025-03-06,Lindt,F&B,Leisure Traveler,Email,Post-campaign,11328,944,145,290,17823.4,61.46,4.21
+TX0012,2025-03-09,Heineken,Beverage,Business Traveler,Loyalty App,Pre-campaign,18154,626,45,90,4328.1,48.09,4.19
+TX0013,2025-05-16,LEGO,Gifting,Leisure Traveler,Loyalty App,Campaign,27640,691,84,84,3614.52,43.03,3.81
+TX0014,2025-05-26,MAC,Beauty,Leisure Traveler,Email,Post-campaign,1785,119,16,32,1019.84,31.87,3.91
+TX0015,2025-03-09,MAC,Beauty,Family Traveler,Paid Social,Post-campaign,3536,221,19,57,2932.65,51.45,4.31
+TX0016,2025-05-13,LEGO,Gifting,Family Traveler,Email,Pre-campaign,13257,491,75,225,14836.5,65.94,4.17
+TX0017,2025-01-02,Lindt,F&B,Leisure Traveler,Email,Pre-campaign,6119,211,11,33,1913.34,57.98,4.36
+TX0018,2025-02-24,Rituals,Beauty,Business Traveler,Loyalty App,Post-campaign,4176,144,9,27,857.25,31.75,4.47
+TX0019,2025-04-21,MAC,Beauty,Commuter,Search,Campaign,21926,577,131,262,7283.6,27.8,3.73
+TX0020,2025-01-28,MAC,Beauty,Business Traveler,Paid Social,Pre-campaign,2660,190,12,24,1738.56,72.44,4.64
+TX0021,2025-01-20,Heineken,Beverage,Family Traveler,Loyalty App,Pre-campaign,15968,998,157,157,5513.84,35.12,3.92
+TX0022,2025-02-24,Rituals,Beauty,Family Traveler,Email,Pre-campaign,9496,1187,82,82,2115.6,25.8,4.23
+TX0023,2025-05-23,MAC,Beauty,Family Traveler,Paid Social,Pre-campaign,2688,84,13,26,927.68,35.68,4.51
+TX0024,2025-01-15,Tonys Chocolonely,F&B,Leisure Traveler,Loyalty App,Campaign,5775,525,100,300,17100.0,57.0,4.57
+TX0025,2025-06-02,Heineken,Beverage,Leisure Traveler,Paid Social,Campaign,21006,1167,72,216,4028.4,18.65,3.84
+TX0026,2025-05-14,Rituals,Beauty,Commuter,In-store Display,Pre-campaign,5840,584,108,108,5054.4,46.8,4.36
+TX0027,2025-04-28,LEGO,Gifting,Commuter,Email,Pre-campaign,16629,723,103,206,4709.16,22.86,4.44
+TX0028,2025-03-31,MAC,Beauty,Leisure Traveler,Paid Social,Campaign,3408,284,48,48,2591.52,53.99,3.77
+TX0029,2025-06-17,Tonys Chocolonely,F&B,Leisure Traveler,Loyalty App,Campaign,14508,403,89,267,9908.37,37.11,4.88
+TX0030,2025-02-09,LEGO,Gifting,Commuter,In-store Display,Post-campaign,4672,292,30,30,2575.5,85.85,4.57
+TX0031,2025-01-14,Lindt,F&B,Leisure Traveler,Search,Campaign,16422,782,106,318,16710.9,52.55,4.78
+TX0032,2025-04-24,Rituals,Beauty,Family Traveler,Loyalty App,Pre-campaign,2523,87,9,27,2519.64,93.32,3.81
+TX0033,2025-02-07,Rituals,Beauty,Family Traveler,Paid Social,Pre-campaign,3978,234,45,45,3657.15,81.27,4.36
+TX0034,2025-04-01,Tonys Chocolonely,F&B,Family Traveler,Loyalty App,Post-campaign,8260,826,132,132,9056.52,68.61,4.47
+TX0035,2025-03-27,Lindt,F&B,Family Traveler,Paid Social,Campaign,10152,564,130,130,11070.8,85.16,3.63
+TX0036,2025-04-28,Lindt,F&B,Commuter,In-store Display,Pre-campaign,9632,301,70,70,5828.2,83.26,3.89
+TX0037,2025-03-13,Lindt,F&B,Commuter,Loyalty App,Campaign,2560,128,18,36,1264.32,35.12,3.69
+TX0038,2025-05-29,LEGO,Gifting,Commuter,Email,Pre-campaign,34162,1178,65,65,5511.35,84.79,3.94
+TX0039,2025-01-30,Heineken,Beverage,Family Traveler,Loyalty App,Pre-campaign,29070,969,234,468,22566.96,48.22,4.88
+TX0040,2025-06-21,Tonys Chocolonely,F&B,Business Traveler,In-store Display,Campaign,5950,170,8,24,2131.68,88.82,4.3
+TX0041,2025-06-20,Rituals,Beauty,Family Traveler,In-store Display,Campaign,21168,756,68,204,17686.8,86.7,4.26
+TX0042,2025-02-14,LEGO,Gifting,Commuter,Search,Post-campaign,10960,685,83,166,11153.54,67.19,4.09
+TX0043,2025-03-24,Rituals,Beauty,Family Traveler,Search,Campaign,18252,702,88,176,13590.72,77.22,4.39
+TX0044,2025-05-12,LEGO,Gifting,Commuter,Email,Pre-campaign,20680,517,85,255,6650.4,26.08,3.71
+TX0045,2025-05-02,LEGO,Gifting,Leisure Traveler,Search,Campaign,15730,715,85,85,1192.55,14.03,3.92
+TX0046,2025-01-02,LEGO,Gifting,Leisure Traveler,Search,Pre-campaign,15296,478,86,172,5547.0,32.25,4.45
+TX0047,2025-04-27,Lindt,F&B,Business Traveler,Search,Post-campaign,42180,1140,69,207,6764.76,32.68,4.7
+TX0048,2025-02-10,Heineken,Beverage,Family Traveler,Search,Campaign,26244,729,165,330,26710.2,80.94,4.31
+TX0049,2025-03-02,Lindt,F&B,Commuter,In-store Display,Campaign,25233,647,93,186,9022.86,48.51,4.53
+TX0050,2025-02-24,Heineken,Beverage,Leisure Traveler,Search,Campaign,3920,245,21,21,919.59,43.79,3.8
+TX0051,2025-05-30,Tonys Chocolonely,F&B,Leisure Traveler,Loyalty App,Campaign,44067,1191,165,165,4813.05,29.17,4.15
+TX0052,2025-04-18,MAC,Beauty,Business Traveler,Search,Pre-campaign,2760,92,14,28,2319.52,82.84,4.84
+TX0053,2025-04-14,Tonys Chocolonely,F&B,Business Traveler,Search,Pre-campaign,37908,972,55,110,4389.0,39.9,4.48
+TX0054,2025-01-22,Heineken,Beverage,Family Traveler,Paid Social,Campaign,10557,1173,290,580,35455.4,61.13,4.46
+TX0055,2025-04-08,Lindt,F&B,Commuter,Search,Campaign,4368,182,33,66,1951.62,29.57,4.02
+TX0056,2025-02-27,Rituals,Beauty,Leisure Traveler,Email,Pre-campaign,9387,1043,243,729,11897.28,16.32,4.84
+TX0057,2025-01-30,Lindt,F&B,Business Traveler,Search,Post-campaign,4392,488,103,103,3275.4,31.8,4.22
+TX0058,2025-02-11,Tonys Chocolonely,F&B,Commuter,Email,Post-campaign,15030,835,196,588,54090.12,91.99,4.53
+TX0059,2025-06-10,Rituals,Beauty,Business Traveler,Email,Post-campaign,22976,718,136,408,11611.68,28.46,4.37
+TX0060,2025-05-10,Tonys Chocolonely,F&B,Commuter,Email,Campaign,3270,327,60,180,8560.8,47.56,4.08
+TX0061,2025-02-09,MAC,Beauty,Family Traveler,Paid Social,Post-campaign,10360,296,37,111,9546.0,86.0,4.2
+TX0062,2025-03-24,Heineken,Beverage,Business Traveler,Email,Campaign,24054,633,150,300,24162.0,80.54,4.37
+TX0063,2025-05-07,MAC,Beauty,Commuter,Paid Social,Campaign,21423,579,100,300,20238.0,67.46,4.04
+TX0064,2025-03-12,Lindt,F&B,Leisure Traveler,Loyalty App,Pre-campaign,19344,806,127,254,21607.78,85.07,4.51
+TX0065,2025-06-15,Rituals,Beauty,Family Traveler,Search,Pre-campaign,19516,574,90,270,20231.1,74.93,4.5
+TX0066,2025-04-05,Rituals,Beauty,Family Traveler,Loyalty App,Post-campaign,15004,682,137,411,13230.09,32.19,4.46
+TX0067,2025-03-01,Tonys Chocolonely,F&B,Leisure Traveler,Paid Social,Campaign,27579,951,137,411,20410.26,49.66,4.0
+TX0068,2025-05-31,Rituals,Beauty,Commuter,Email,Pre-campaign,22363,1177,107,107,7843.1,73.3,3.96
+TX0069,2025-03-12,Tonys Chocolonely,F&B,Leisure Traveler,Email,Post-campaign,16895,545,49,98,1290.66,13.17,4.29
+TX0070,2025-04-23,Tonys Chocolonely,F&B,Commuter,Paid Social,Pre-campaign,13182,338,29,29,1729.85,59.65,4.21
+TX0071,2025-06-11,Tonys Chocolonely,F&B,Leisure Traveler,Paid Social,Pre-campaign,15870,1058,262,262,11858.12,45.26,3.7
+TX0072,2025-06-02,Heineken,Beverage,Business Traveler,Loyalty App,Campaign,9126,702,98,98,5715.36,58.32,4.14
+TX0073,2025-06-06,MAC,Beauty,Leisure Traveler,Paid Social,Post-campaign,26622,986,199,398,14865.3,37.35,4.41
+TX0074,2025-01-01,Lindt,F&B,Family Traveler,Search,Post-campaign,8073,621,51,51,1347.93,26.43,3.7
+TX0075,2025-04-27,Heineken,Beverage,Leisure Traveler,Paid Social,Campaign,27092,1042,60,60,2154.6,35.91,3.97
+TX0076,2025-03-10,LEGO,Gifting,Business Traveler,Email,Pre-campaign,16975,485,38,114,3495.24,30.66,3.79
+TX0077,2025-04-14,Lindt,F&B,Commuter,Loyalty App,Post-campaign,18434,709,147,147,7482.3,50.9,4.0
+TX0078,2025-06-04,MAC,Beauty,Commuter,Email,Pre-campaign,12688,976,201,201,17249.82,85.82,4.55
+TX0079,2025-05-13,Lindt,F&B,Family Traveler,In-store Display,Pre-campaign,3050,122,24,24,1808.16,75.34,3.83
+TX0080,2025-06-21,Heineken,Beverage,Leisure Traveler,Paid Social,Campaign,37908,972,71,142,5804.96,40.88,4.03
+TX0081,2025-04-27,MAC,Beauty,Leisure Traveler,In-store Display,Campaign,28444,1094,223,446,35470.38,79.53,4.32
+TX0082,2025-01-14,Tonys Chocolonely,F&B,Business Traveler,Loyalty App,Campaign,10461,317,15,45,3787.2,84.16,4.2
+TX0083,2025-03-15,Heineken,Beverage,Family Traveler,Search,Pre-campaign,39600,1100,249,249,7196.1,28.9,4.31
+TX0084,2025-02-27,Rituals,Beauty,Leisure Traveler,Search,Pre-campaign,10260,570,67,201,2639.13,13.13,4.13
+TX0085,2025-05-04,LEGO,Gifting,Family Traveler,Paid Social,Campaign,15405,395,56,168,11852.4,70.55,4.14
+TX0086,2025-01-18,Heineken,Beverage,Commuter,Search,Campaign,12032,376,42,126,6826.68,54.18,4.74
+TX0087,2025-06-18,Heineken,Beverage,Family Traveler,Paid Social,Campaign,5016,627,67,201,7392.78,36.78,4.36
+TX0088,2025-03-24,Heineken,Beverage,Business Traveler,Paid Social,Post-campaign,32130,1071,138,414,31182.48,75.32,4.09
+TX0089,2025-04-08,MAC,Beauty,Family Traveler,Paid Social,Campaign,18972,558,32,64,4723.84,73.81,4.52
+TX0090,2025-05-15,Rituals,Beauty,Family Traveler,Email,Post-campaign,13520,338,58,58,4904.48,84.56,4.17
+TX0091,2025-06-09,Lindt,F&B,Family Traveler,Email,Campaign,15623,919,64,128,9839.36,76.87,3.94
+TX0092,2025-05-19,LEGO,Gifting,Leisure Traveler,Loyalty App,Pre-campaign,37504,1172,139,417,29878.05,71.65,4.59
+TX0093,2025-06-30,Lindt,F&B,Leisure Traveler,Search,Pre-campaign,14696,668,56,112,10438.4,93.2,4.59
+TX0094,2025-04-06,LEGO,Gifting,Family Traveler,Paid Social,Pre-campaign,6237,693,45,90,7027.2,78.08,3.98
+TX0095,2025-06-08,Heineken,Beverage,Business Traveler,Search,Post-campaign,17537,923,89,89,1650.95,18.55,4.73
+TX0096,2025-04-30,Lindt,F&B,Commuter,Loyalty App,Pre-campaign,20535,555,108,216,10830.24,50.14,4.47
+TX0097,2025-03-06,Rituals,Beauty,Family Traveler,In-store Display,Pre-campaign,29520,984,199,398,25881.94,65.03,4.15
+TX0098,2025-06-29,MAC,Beauty,Commuter,Email,Post-campaign,14966,1069,113,226,13440.22,59.47,4.35
+TX0099,2025-03-15,MAC,Beauty,Business Traveler,Loyalty App,Campaign,5136,642,44,132,9748.2,73.85,4.68
+TX0100,2025-02-05,Lindt,F&B,Leisure Traveler,Email,Campaign,11256,469,109,327,24753.9,75.7,4.49
+TX0101,2025-04-17,MAC,Beauty,Business Traveler,Paid Social,Pre-campaign,4588,148,30,30,584.4,19.48,3.98
+TX0102,2025-05-04,Heineken,Beverage,Commuter,In-store Display,Pre-campaign,33160,829,110,110,3666.3,33.33,4.67
+TX0103,2025-05-23,MAC,Beauty,Commuter,Email,Campaign,3978,234,25,75,5408.25,72.11,4.87
+TX0104,2025-05-30,Rituals,Beauty,Family Traveler,In-store Display,Pre-campaign,9315,621,89,178,12075.52,67.84,4.47
+TX0105,2025-06-06,LEGO,Gifting,Business Traveler,Email,Post-campaign,21204,558,30,90,7685.1,85.39,4.33
+TX0106,2025-05-07,MAC,Beauty,Leisure Traveler,Email,Pre-campaign,23732,698,63,63,992.88,15.76,3.65
+TX0107,2025-05-19,Heineken,Beverage,Family Traveler,Loyalty App,Post-campaign,11424,357,75,150,10147.5,67.65,4.57
+TX0108,2025-03-13,LEGO,Gifting,Leisure Traveler,In-store Display,Pre-campaign,13464,396,31,62,3912.2,63.1,4.82
+TX0109,2025-06-15,MAC,Beauty,Commuter,Email,Campaign,22770,990,141,141,13172.22,93.42,4.08
+TX0110,2025-06-02,Tonys Chocolonely,F&B,Leisure Traveler,Email,Campaign,7020,468,81,81,5427.81,67.01,4.43
+TX0111,2025-03-01,Lindt,F&B,Commuter,Paid Social,Post-campaign,7077,337,24,72,2101.68,29.19,3.88
+TX0112,2025-06-19,Rituals,Beauty,Leisure Traveler,Paid Social,Pre-campaign,10999,647,65,195,6396.0,32.8,3.83
+TX0113,2025-04-18,Tonys Chocolonely,F&B,Leisure Traveler,Email,Campaign,15876,567,30,30,1020.9,34.03,3.76
+TX0114,2025-06-07,MAC,Beauty,Leisure Traveler,Loyalty App,Campaign,32840,821,192,192,9507.84,49.52,3.89
+TX0115,2025-04-24,MAC,Beauty,Leisure Traveler,Email,Campaign,1573,143,22,44,2084.72,47.38,3.74
+TX0116,2025-03-25,Heineken,Beverage,Family Traveler,Loyalty App,Post-campaign,4596,383,35,70,4467.4,63.82,4.36
+TX0117,2025-06-17,Tonys Chocolonely,F&B,Business Traveler,Search,Campaign,40360,1009,204,408,8253.84,20.23,4.51
+TX0118,2025-04-20,Lindt,F&B,Commuter,In-store Display,Campaign,26883,927,162,324,15075.72,46.53,3.72
+TX0119,2025-04-06,Lindt,F&B,Business Traveler,Loyalty App,Pre-campaign,12612,1051,75,75,1480.5,19.74,3.73
+TX0120,2025-04-19,Heineken,Beverage,Leisure Traveler,In-store Display,Post-campaign,11325,755,142,284,24000.84,84.51,4.82
