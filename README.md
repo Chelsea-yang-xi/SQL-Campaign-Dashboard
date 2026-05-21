@@ -51,7 +51,7 @@ This is a portfolio project using fictionalized data inspired by my work experie
 
 ## Preview of Dashboard
 
-![fromt page](screenshot/front page.png)
+![front-page](screenshot/front-page.png)
 
 ![dashboard1](screenshot/dashboard1.png)
 
